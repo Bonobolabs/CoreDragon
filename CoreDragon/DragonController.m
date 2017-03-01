@@ -4,7 +4,7 @@
 #import "DragonDropHighlightView.h"
 #import "DragonContainerWindow.h"
 #import "DragonProxyView.h"
-#import <MeshPipe/CerfingMeshPipeTransport/CerfingMeshPipe.h>
+#import "CerfingMeshPipe.h"
 
 @class SPDropTarget, SPDragSource;
 
