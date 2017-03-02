@@ -605,7 +605,13 @@ static UIImage *unserializedImage(NSDictionary *rep)
     target.highlight.droppable = [target canDrop:state];
     
     target.highlight.alpha = 0;
-    [target.view addSubview:target.highlight];
+    // Add to superview in the case of UIScrollView based targets
+    if ([target.view isKindOfClass:[UIScrollView class]]) {
+        target.highlight.frame = target.view.frame;
+        [target.view.superview addSubview:target.highlight];
+    } else {
+        [target.view addSubview:target.highlight];
+    }
     [UIView animateWithDuration:.2 animations:^{
         target.highlight.alpha = 1;
     }];
